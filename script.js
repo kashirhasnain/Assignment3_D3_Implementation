@@ -49,3 +49,6 @@ tabs.forEach(tab => {
     tabs[newIndex].click();
   });
 });
+
+    /* CSV viewer: fetch & display raw text and parsed table */
+   

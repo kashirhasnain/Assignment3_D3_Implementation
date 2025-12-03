@@ -3,7 +3,7 @@ let currentXScale = 10;
 let currentYScale = 11;
 let currentMonth = "All";
 
-console.log("Script loaded");
+
 
 // City code to name mapping
 const cityMapping = {
@@ -68,7 +68,7 @@ monthFilterGroup.style.marginBottom = "20px";
 monthFilterGroup.innerHTML = `
   <label style="display: block; margin-bottom: 10px; font-weight: bold; color: #333;">Filter by Month:</label>
   <select id="monthFilter" style="padding: 10px; font-size: 14px; border-radius: 4px; border: 1px solid #ddd; cursor: pointer;">
-    <option value="All">All Months</option>
+    <option value="All">Select Month</option>
   </select>
 `;
 controlsContainer.appendChild(monthFilterGroup);
@@ -82,7 +82,7 @@ if (heatmapDiv && heatmapDiv.parentNode) {
 /* Load the dataset */
 d3.csv("./Data/collisions_new.csv").then(rawData => {
   
-  console.log("CSV loaded:", rawData.length, "rows");
+  console.log("CSV successfully loaded:", rawData.length, "rows");
   
   /* Parse and format data */
   fullData = rawData.map(d => {
@@ -126,12 +126,9 @@ d3.csv("./Data/collisions_new.csv").then(rawData => {
     };
   }).filter(d => d.city && d.city.length > 0);
 
-  console.log("Processed data:", fullData.length, "rows");
-  console.log("Sample row:", fullData[0]);
   
-  // Check what city names look like
-  const uniqueCities = [...new Set(fullData.map(d => d.city))];
-  console.log("Unique cities in data:", uniqueCities.slice(0, 20));
+  
+  
   
   // Get unique months
   const monthSet = new Set(fullData.map(d => d.month).filter(m => m !== "Unknown"));
@@ -176,7 +173,7 @@ d3.csv("./Data/collisions_new.csv").then(rawData => {
     
     console.log("Filtered data for month '" + currentMonth + "':", filteredData.length, "rows");
     
-    // Get top 20 cities
+    // Get top 0 cities
     const cityCounts = {};
     filteredData.forEach(d => {
       if (d.city) {
@@ -404,5 +401,5 @@ function createHeatmap(data, cities) {
     .attr("font-size", "9px")
     .text("High");
 
-  console.log("Heatmap rendered successfully");
+  
 }

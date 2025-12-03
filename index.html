@@ -90,7 +90,10 @@
 dataset['hour'] = pd.to_datetime(dataset['time'], format='%H:%M').dt.hour</code></b></li>
                         <li>✓ Replaced all the locations Codes with Cities Name by adding Column City and map with it<b>
                                 <p>dataset['City'] = dataset['local_authority_highway'].replace({<br>
-                                    'Hartlepool': 'Hartlepool',<br>
+                                    'E09000030': 'Wandsworth',<br>
+                                    'E09000010': 'Enfield',<br>
+                                    'E09000008': 'Croydon',<br>
+                                    'E06000012': 'Redcar and Cleveland',<br>
                                     'E06000001': 'Hartlepool',<br>
                                     'E06000002': 'Middlesbrough'})</p>
                             </b>
@@ -103,9 +106,7 @@ dataset['hour'] = pd.to_datetime(dataset['time'], format='%H:%M').dt.hour</code>
                         <li><b style="color: blue;">HeatMap Visualization Questionnaire:</b> Identify which cities
                             (Wandsworth, Enfield, Croydon, Redcar and Cleveland, Lambeth, Hartlepool,Hackney and Newham)
                             have the most collisions during the rush hours. </li>
-                        <li><b style="color: blue;">ScatterMap Visualization Questionnaire:</b> What is the geographic
-                            distribution of collisions across different cities during peak hours, and how do severity
-                            levels and casualty counts vary by location?</li>
+
 
                     </ul>
 
@@ -125,20 +126,11 @@ dataset['hour'] = pd.to_datetime(dataset['time'], format='%H:%M').dt.hour</code>
 
 
                         </li>
+
+
                         <br> <br> <br> <br>
                     </ul>
-                    <p style="color: BLUE;"><strong>Key variables from Collision Dataset for SCATTER MAP
-                            Visualization:</strong></p>
-                    <ul>
-                        <li><strong>Geographic:</strong> longitude, latitude</li>
 
-                        <li><strong>Severity:</strong>
-                            <ol>
-                                <li>collision_severity(color coding)</li>
-                                <li>number_of_casualties(circle radius)</li>
-                                <li>number_of_vehicles(opacity)</li>
-                            </ol>
-                        </li>
 
 
                     </ul>
@@ -154,9 +146,10 @@ dataset['hour'] = pd.to_datetime(dataset['time'], format='%H:%M').dt.hour</code>
                     <p><strong>Heatmap:</strong></p>
                     <div id="heatmap">
                         <script src="https://d3js.org/d3.v7.min.js"></script>
-                        <script src="./heatmap.js"></script></div>
+                        <script src="./heatmap.js"></script>
                     </div>
-                
+                </div>
+
 
                 <div id="panel-6" class="tab-panel" role="tabpanel" aria-labelledby="tab-6" aria-hidden="true">
                     <h3>References</h3>
@@ -176,7 +169,7 @@ dataset['hour'] = pd.to_datetime(dataset['time'], format='%H:%M').dt.hour</code>
     </section>
 
     <br><br>
-    
+
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="script.js"></script>
 
